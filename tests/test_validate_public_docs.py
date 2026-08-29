@@ -48,6 +48,9 @@ class ForbiddenContentTests(unittest.TestCase):
     def test_imac_boundary_is_allowed(self) -> None:
         self.assertEqual(self.labels("iMac support is not currently declared"), set())
 
+    def test_marketing_cta_does_not_bypass_download_canonical(self) -> None:
+        self.assertEqual(self.labels("Official Download: https://www.macbaram.com/download"), set())
+
 
 if __name__ == "__main__":
     unittest.main()

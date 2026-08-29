@@ -14,6 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = {
     "README.md",
     "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "KNOWN_LIMITATIONS.md",
     "SUPPORT.md",
     "SECURITY.md",
     "docs/README.md",
@@ -23,7 +25,11 @@ REQUIRED = {
     "docs/troubleshooting.md",
     "docs/faq.md",
     "docs/consistency-rules.md",
+    "docs/update-policy.md",
     "data/public-facts.json",
+    "assets/macbaram-icon.png",
+    "assets/macbaram-dashboard.webp",
+    "assets/social-preview.png",
 }
 ALLOWED_STATUSES = {"available", "roadmap", "concept", "unsupported"}
 OFFICIAL_ORIGIN = "www.macbaram.com"
@@ -123,11 +129,12 @@ def validate_content(errors: list[str]) -> None:
 
 def validate_relative_links(errors: list[str]) -> None:
     link_pattern = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
+    image_pattern = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
     for path in text_files():
         if path.suffix.lower() != ".md":
             continue
         content = path.read_text(encoding="utf-8")
-        for target in link_pattern.findall(content):
+        for target in link_pattern.findall(content) + image_pattern.findall(content):
             target = target.strip().split("#", 1)[0]
             if not target or target.startswith(("http://", "https://", "mailto:")):
                 continue
@@ -141,9 +148,32 @@ def validate_relative_links(errors: list[str]) -> None:
                 fail(errors, f"{path.relative_to(ROOT)}: missing relative link target: {target}")
 
 
+def validate_visual_assets(errors: list[str]) -> None:
+    preview = ROOT / "assets/social-preview.png"
+    try:
+        content = preview.read_bytes()
+    except OSError as exc:
+        fail(errors, f"cannot read social preview: {exc}")
+        return
+    if len(content) >= 1_000_000:
+        fail(errors, f"social preview must remain under 1 MB, got {len(content)} bytes")
+    if content[:8] != b"\x89PNG\r\n\x1a\n" or len(content) < 24:
+        fail(errors, "social preview must be a valid PNG")
+        return
+    width = int.from_bytes(content[16:20], "big")
+    height = int.from_bytes(content[20:24], "big")
+    if width < 640 or height < 320:
+        fail(errors, f"social preview is too small: {width}x{height}")
+    if width != height * 2:
+        fail(errors, f"social preview must use a 2:1 aspect ratio, got {width}x{height}")
+
+
 def validate_readme(errors: list[str]) -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    words = re.findall(r"\b[\w'-]+\b", readme)
+    rendered = re.sub(r"<[^>]+>", " ", readme)
+    rendered = re.sub(r"!\[[^\]]*\]\([^)]+\)", " ", rendered)
+    rendered = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", rendered)
+    words = re.findall(r"\b[\w'-]+\b", rendered)
     if not 500 <= len(words) <= 900:
         fail(errors, f"README word count must be 500-900, got {len(words)}")
     if CANONICAL_DOWNLOAD not in readme:
@@ -162,6 +192,7 @@ def main() -> int:
     validate_public_facts(errors)
     validate_content(errors)
     validate_relative_links(errors)
+    validate_visual_assets(errors)
     validate_readme(errors)
     if errors:
         for error in errors:

@@ -4,6 +4,8 @@ This file records user-visible changes after a MacBaram release is promoted to t
 
 The official installer remains available only from [https://www.macbaram.com/download](https://www.macbaram.com/download).
 
+See the [update publication policy](docs/update-policy.md) for verification, correction, and operational-note rules.
+
 ## [Unreleased]
 
 No public changes are announced here until release promotion is complete.
