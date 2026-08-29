@@ -7,9 +7,11 @@ This directory explains the public, currently verified behavior of MacBaram.
 - [Features and behavior](features.md) — what MacBaram currently does and how the controls relate.
 - [Supported Macs](supported-macs.md) — hardware and operating-system boundaries.
 - [Safety and permissions](safety-and-permissions.md) — fail-closed behavior, system access, and user responsibilities.
+- [Known limitations](../KNOWN_LIMITATIONS.md) — current public boundaries that should not be inferred away.
 - [Troubleshooting](troubleshooting.md) — safe first checks for common problems.
 - [Frequently asked questions](faq.md) — short answers about downloads, compatibility, pricing, and updates.
 - [Public update notes](../CHANGELOG.md) — user-visible changes after a release is promoted to the official download channel.
+- [Update publication policy](update-policy.md) — when release and operational notes become public.
 
 ## Sources of truth
 
