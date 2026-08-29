@@ -1,0 +1,29 @@
+# Features and behavior
+
+MacBaram treats fan, charging, and sleep as related parts of a long-running Mac workload. The dashboard shows the controls that are available on the current hardware.
+
+## Fan control
+
+On supported Macs with controllable fans, a user can define a fan curve across temperature ranges and select the intended response. MacBaram reports the current state so the control is not separated from the workload it affects.
+
+Fan control is not available on fanless Macs or when the required hardware capability cannot be verified. MacBaram does not claim that a selected curve will produce a specific throttling or performance result.
+
+## Charging controls
+
+On supported portable Macs, MacBaram provides charging-related limits intended for users who keep their Mac connected to power during long work.
+
+Charging controls depend on the battery and power capabilities reported by the current Mac. They are not shown on desktop Macs. MacBaram does not promise a particular battery-health or battery-lifespan outcome.
+
+## Sleep prevention
+
+MacBaram can prevent normal system sleep while a long-running job is active. This helps avoid an avoidable sleep interruption, but it does not guarantee that an application, network connection, power source, or workload will remain available.
+
+## Low-battery return to normal sleep
+
+The user can set a low-battery threshold for long-work protection. When that level is reached, MacBaram can release sleep prevention and allow macOS to return to its normal sleep behavior. This prevents the keep-awake setting itself from remaining active without a configured battery boundary.
+
+## Unified dashboard
+
+Fan, battery, power, and sleep state are shown together. The dashboard is evidence of the current Mac's detected capabilities; it is not a promise that every control exists on every model.
+
+For longer explanations, see the official guides for [Mac fan control](https://www.macbaram.com/guides/mac-fan-control/), [battery charge limits](https://www.macbaram.com/guides/mac-battery-charge-limit/), and [keeping a Mac awake](https://www.macbaram.com/guides/keep-mac-awake/).

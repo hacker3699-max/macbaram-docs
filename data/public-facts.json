@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "product": "MacBaram",
+  "official_website": "https://www.macbaram.com/",
+  "official_download": "https://www.macbaram.com/download",
+  "publication_direction": "production_to_public_docs",
+  "status_values": [
+    "available",
+    "roadmap",
+    "concept",
+    "unsupported"
+  ],
+  "facts": [
+    {
+      "id": "apple-silicon-requirement",
+      "status": "available",
+      "summary": "MacBaram requires Apple silicon and macOS 13 or later.",
+      "verified_on": "2026-08-29",
+      "source_url": "https://www.macbaram.com/"
+    },
+    {
+      "id": "fan-control",
+      "status": "available",
+      "summary": "User-defined fan curves and fan control are available when the Mac reports a verified controllable-fan capability.",
+      "verified_on": "2026-08-29",
+      "source_url": "https://www.macbaram.com/guides/mac-fan-control/"
+    },
+    {
+      "id": "charging-controls",
+      "status": "available",
+      "summary": "Charging-related limits are available on supported portable Macs.",
+      "verified_on": "2026-08-29",
+      "source_url": "https://www.macbaram.com/guides/mac-battery-charge-limit/"
+    },
+    {
+      "id": "sleep-prevention",
+      "status": "available",
+      "summary": "Sleep prevention is available for long-running work on supported Macs.",
+      "verified_on": "2026-08-29",
+      "source_url": "https://www.macbaram.com/guides/keep-mac-awake/"
+    },
+    {
+      "id": "low-battery-sleep-return",
+      "status": "available",
+      "summary": "At the user-configured low-battery threshold, MacBaram can release sleep prevention and allow normal macOS sleep behavior.",
+      "verified_on": "2026-08-29",
+      "source_url": "https://www.macbaram.com/"
+    },
+    {
+      "id": "unified-dashboard",
+      "status": "available",
+      "summary": "Fan, battery, power, and sleep state are presented in one dashboard.",
+      "verified_on": "2026-08-29",
+      "source_url": "https://www.macbaram.com/"
+    },
+    {
+      "id": "intel-mac",
+      "status": "unsupported",
+      "summary": "Intel Macs are not supported.",
+      "verified_on": "2026-08-29",
+      "source_url": "https://www.macbaram.com/"
+    },
+    {
+      "id": "imac",
+      "status": "unsupported",
+      "summary": "iMac support is not currently declared; affected controls remain unavailable when required capability is not verified.",
+      "verified_on": "2026-08-29",
+      "source_url": "https://www.macbaram.com/"
+    }
+  ]
+}

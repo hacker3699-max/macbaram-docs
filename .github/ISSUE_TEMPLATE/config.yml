@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Private support
+    url: https://www.macbaram.com/
+    about: Use the private support contact on the official website for account, payment, license, or diagnostic matters.
+  - name: Security report
+    url: https://www.macbaram.com/
+    about: Use the private security contact in SECURITY.md; never report a vulnerability in a public issue.
