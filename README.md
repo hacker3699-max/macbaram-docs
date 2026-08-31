@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> This repository is a preserved legacy copy and is no longer maintained.
+> The canonical MacBaram public documentation is [macbaram/macbaram-docs](https://github.com/macbaram/macbaram-docs).
+
 <p align="center">
   <img src="assets/macbaram-icon.png" width="96" height="93" alt="MacBaram app icon">
 </p>
