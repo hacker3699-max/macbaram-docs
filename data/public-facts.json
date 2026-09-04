@@ -4,8 +4,9 @@
   "official_website": "https://www.macbaram.com/",
   "official_download": "https://www.macbaram.com/download",
   "publication_direction": "production_to_public_docs",
-  "deprecated_or_historical": true,
-  "canonical_url": "https://github.com/macbaram/macbaram-docs/blob/main/data/public-facts.json",
+  "document_status": "deprecated",
+  "historical": true,
+  "canonical_url": "https://raw.githubusercontent.com/macbaram/macbaram-docs/main/data/public-facts.json",
   "last_verified_on": "2026-09-04",
   "status_values": [
     "available",
